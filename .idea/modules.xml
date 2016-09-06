@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/react-hydra.iml" filepath="$PROJECT_DIR$/react-hydra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/react-hydra-binding.iml" filepath="$PROJECT_DIR$/react-hydra-binding.iml" />
     </modules>
   </component>
 </project>
