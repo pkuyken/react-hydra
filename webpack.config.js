@@ -20,9 +20,6 @@ module.exports = {
         publicPath: '/',
         filename: 'bundle.js'
     },
-    devServer: {
-        contentBase: './dist'
-    },
     devtool: 'source-map',
     resolve: {
         extensions: ['', '.js', '.jsx']

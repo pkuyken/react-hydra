@@ -38,3 +38,6 @@ jspm_packages/
 /.idea/misc.xml
 /.idea/dictionaries/
 /.idea/workspace.xml
+
+# Webpack dist
+/dist
