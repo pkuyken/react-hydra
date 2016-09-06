@@ -12,9 +12,6 @@ module.exports = {
             loader: 'babel'
         }]
     },
-    resolve: {
-        extensions: ['', '.js', '.jsx']
-    },
     output: {
         path: path.join(__dirname, '/dist'),
         publicPath: '/',
@@ -23,14 +20,5 @@ module.exports = {
     devtool: 'source-map',
     resolve: {
         extensions: ['', '.js', '.jsx']
-    },
-    module: {
-        loaders: [
-            {
-                test: /.jsx?$/,
-                loaders: ['react-hot', 'babel-loader'],
-                exclude: /node_modules/
-            }
-        ]
     }
 };
