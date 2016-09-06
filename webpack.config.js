@@ -1,3 +1,6 @@
+var path = require('path');
+var webpack = require('webpack');
+
 module.exports = {
     entry: [
         './src/index.js'
@@ -13,11 +16,24 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     output: {
-        path: __dirname + '/dist',
+        path: path.join(__dirname, '/dist'),
         publicPath: '/',
         filename: 'bundle.js'
     },
     devServer: {
         contentBase: './dist'
+    },
+    devtool: 'source-map',
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
+    module: {
+        loaders: [
+            {
+                test: /.jsx?$/,
+                loaders: ['react-hot', 'babel-loader'],
+                exclude: /node_modules/
+            }
+        ]
     }
 };
