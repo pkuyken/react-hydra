@@ -1,1 +1,1 @@
-# react-hydra
+# react-hydra-binding
