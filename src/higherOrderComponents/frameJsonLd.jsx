@@ -3,7 +3,7 @@ import jsonld from 'jsonld';
 
 const frameJsonLd = (Component, frame) => {
     class FramedJsonLd extends React.Component {
-        state = {framed:{}};
+        state = {framed: {}};
 
         componentDidMount() {
             jsonld.promises.frame(this.props.instance, frame).then(framed => this.setState({framed: framed['@graph'][0]}))
@@ -12,7 +12,7 @@ const frameJsonLd = (Component, frame) => {
         render() {
             return <Component {...this.props} {...this.state} />;
         }
-    };
+    }
 
     return FramedJsonLd;
 };
