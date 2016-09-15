@@ -14,6 +14,7 @@ const options = {
 export const FETCH_HYDRA_API = 'FETCH_HYDRA_API';
 export const FETCH_HYDRA_COLLECTION = 'FETCH_HYDRA_COLLECTION';
 export const FETCH_HYDRA_INSTANCE = 'FETCH_HYDRA_INSTANCE';
+export const DELETE_HYDRA_INSTANCE = 'DELETE_HYDRA_INSTANCE';
 
 // fetches the endpoint and API
 export const fetchApi = endpointUrl =>
@@ -71,6 +72,27 @@ export const fetchInstance = (hydraApi, iri) =>
             .then(instance =>
                 dispatch({
                     type: FETCH_HYDRA_INSTANCE,
+                    iri,
+                    instance
+                })
+            );
+    };
+
+export const deleteInstance =  (hydraApi, instance) =>
+    dispatch => {
+        var resource = hydraApi.api['http://www.w3.org/ns/hydra/core#supportedClass']
+            .find((item, index, array) => {
+                // TODO: dangerous to assume type is always index 0. Restriction of Hydra to single typed resources?
+                if (item['@type'][0] === instance['@type'][0]) {
+                    return item;
+                }
+            });
+
+        const iri = instance['@id'];
+        return fetch(iri, {...options, method: 'DELETE'})
+            .then(instance =>
+                dispatch({
+                    type: DELETE_HYDRA_INSTANCE,
                     iri,
                     instance
                 })
